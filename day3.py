@@ -92,7 +92,7 @@ class Solution:
 s = Solution()
 print(s.subtractProductAndSum(234))
 
-#Question 7()
+#Question 7(Kids with Greatest Number of Candies)
 from typing import List
 class Solution:
   def kidsWithCandies(self, candies: List[int], extraCandies: int) -> List[bool]:
