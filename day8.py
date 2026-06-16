@@ -66,5 +66,38 @@ for i in range(1,n):
 
 print("ascending order:"nums)
 
+#Question 6 MERGE SORT
+def merge_array(left,right):
+  sorted_arr = []
+  i = j = 0
+  while i<len(left) and j<len(right):
+    if left[i] < right[j]:
+      sorted_arr.append(left[i])
+      i+=1
+    else:
+      sorted_arr.append(right[j])
+      j+=1
+  sorted_arr.extend(left[i:])
+  sorted_arr.extend(right[j:])
+  return sorted_arr
+
+def merge_sort(arr):
+  if len(arr)<=1:
+    return arr
+  mid = len(arr)//2
+  left_half = arr[:mid]
+  right_half = arr[mid:]
+  left_half = merge_sort(left_half)
+  right_half = merge_sort(right_half)
+  return merge_array(left_half,right_half)
+
+nums = [3,1,2,4,1,5,2,6,4]
+sorted_nums = merge_sort(nums)
+print(sorted_nums)
+
+
+
+
+
 
   
