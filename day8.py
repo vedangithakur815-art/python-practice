@@ -95,6 +95,51 @@ nums = [3,1,2,4,1,5,2,6,4]
 sorted_nums = merge_sort(nums)
 print(sorted_nums)
 
+#Question 7(Merge Two Sorted Array)
+def merge_array(left,right):
+  sorted_arr = []
+  i = j = 0
+  while i<len(left) and j<len(right):
+    if left[i]<right[j]:
+      sorted_arr.append(left[i])
+      i+=1
+
+    else:
+      sorted+arr.append(right[j])
+      j+=1
+
+sorted_arr.extend(left[i:])
+sorted_arr.extend(right[j:])
+
+arr1 = [1,2,3,4]
+arr2 = [1,1,1,3,4,5,6,7]
+print(merge_array(arr1,arr2))
+
+#question 8(QUICK SORT)
+def partition(nums,low,high):
+    pivot = nums[low]
+    i = low
+    j = high
+    while i<j:
+        while nums[i]<= pivot and i<=high-1:
+            i+=1
+        while nums[j]>pivot and j>= low+1:
+            j-=1
+        if i<=j:
+            nums[i],nums[j] = nums[j],nums[i]
+    nums[low],nums[j] = nums[j],nums[low]
+    return j
+
+def quick_sort(nums,low,high):
+    if low<high:
+        p_ind = partition(nums,low,high)
+        quick_sort(nums,low,p_ind-1)
+        quick_sort(nums,p_ind+1,high)
+
+nums = [3,1,2,4,6,7,8]
+quick_sort(nums,0,len(nums)-1)
+print(nums)
+
 
 
 
