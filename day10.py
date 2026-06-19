@@ -37,3 +37,41 @@ for i in range(n-2,-1,-1):
   arr[i+1] = arr[i]
 arr[0] = temp
 print(arr)
+
+#Question 4(Right Rotate a List by k place)BRUTE FORCE SOLUTION
+arr = [3,9,5,6,7,2]
+k = 5
+n = len(arr)
+r = k%n
+for _ in range(0,r):
+  e = arr.pop()
+  arr.insert(0,e)
+
+print(arr)
+
+#Question 5(Right Rotate a List by k place)BETTER SOLUTION
+arr = [3,9,5,6,7,2]
+arr[:] = arr[n-k:]+arr[:n-k]
+print(arr)
+
+#Question 9(Right Rotate a List by k place)OPTIMAL SOLUTION
+def reverse(nums,left,right):
+  while left<right:
+    nums[left],nums[right] = nums[right],nums[left]
+    left+=1
+    right-=1
+nums = [3,9,5,6,7,2,10,9]
+k = 3
+n = len(nums)
+k = k%n
+reverse(nums,n-k,n-1)
+reverse(nums,0,n-k-1)
+reverse(nums,0,n-1)
+
+print(nums)
+
+
+
+
+
+
